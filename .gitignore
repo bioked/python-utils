@@ -1,5 +1,8 @@
 __pycache__/
 *.pyc
 .DS_Store
+venv/
+.venv/
 results.csv
 survey_responses.csv
+robot_arm_results.csv
