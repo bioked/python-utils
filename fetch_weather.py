@@ -14,14 +14,6 @@ WX_URL  = "https://api.open-meteo.com/v1/forecast"           # weather by lat/lo
 
 
 def geocode_city(city: str) -> Optional[Tuple[float, float, str]]:
-    """
-    Turn a city name into (lat, lon, resolved_name).
-    Returns None if not found or on network failure.
-
-    Why separate this into a function?
-    - Single responsibility: makes testing and reuse easier.
-    - If we ever swap APIs, only this function changes.
-    """
     try:
         # requests.get builds a URL with query params and performs HTTP GET.
         # Under the hood: opens TCP connection, sends headers, receives bytes.
@@ -42,10 +34,6 @@ def geocode_city(city: str) -> Optional[Tuple[float, float, str]]:
 
 
 def fetch_weather(lat: float, lon: float) -> Optional[dict]:
-    """
-    Fetch current weather + hourly temps.
-    Returns the JSON payload (dict) or None on failure.
-    """
     params = {
         "latitude": lat,
         "longitude": lon,
@@ -63,10 +51,6 @@ def fetch_weather(lat: float, lon: float) -> Optional[dict]:
         return None
 
 def pretty_print_weather(payload: dict, resolved_name: str, hours: int):
-    """
-    Print a human-friendly summary and a peek at structure.
-    Why print? In early scripts, printing is the simplest 'UI' for learning.
-    """
     cw = payload.get("current_weather", {})
     hourly = payload.get("hourly", {})
     times = hourly.get("time", [])[:hours]
@@ -93,14 +77,6 @@ def pretty_print_weather(payload: dict, resolved_name: str, hours: int):
 
 
 def main() -> None:
-    """
-    Program entrypoint.
-    Pattern to memorize:
-      - read args
-      - fetch data (fail fast)
-      - transform/pretty print
-      - exit with code (0=ok, nonzero=problem)
-    """
     parser = argparse.ArgumentParser(description="Fetch weather for a city")
     parser.add_argument("city", nargs="*", default=["Berlin"],
         	            help="City name (default: Berlin)")
