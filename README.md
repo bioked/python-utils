@@ -1,8 +1,18 @@
 # python-utils
 
-Small utility scripts and prototypes.
+Small utilities
 
-- app.py: Robotics-flavoured adaptive survey: Flask form that logs participants, assigns adaptive groups, and saves responses to CSV.
-- experiment_logger.py: Log participants and tasks for a robotics study. 
-- fetch_weather.py: Fetch live weather with Open-Meteo. 
-- parse_json.py: Load a JSON file and pretty-print it.
+## Scripts
+
+- experiment_logger.py -> Log participants and cobot tasks with error handling and CSV export. 
+- parse_json.py -> Load a JSON file and pretty-print it.
+
+## Usage
+
+Create and activate a virtual environment, and then run the scripts with Python:
+
+```bash
+python -m venv venv
+source venv/bin/activate
+python parse_json.py
+python experiment_logger.py

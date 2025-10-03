@@ -1,5 +1,0 @@
-id,task,result
-Op01,Pick-and-place bolts,success
-Op02,Pick-and-place bolts,fail
-Op01,Precision soldering,timeout
-Op02,Assembly line tracking,success
