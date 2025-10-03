@@ -1,4 +1,4 @@
-# python-utils
+# Python Utils
 
 Small utilities
 
