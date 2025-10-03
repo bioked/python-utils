@@ -1,0 +1,5 @@
+{
+	"name": "Spot",
+	"age": 2,
+	"activities": ["walk", "run", "bark"]
+}
