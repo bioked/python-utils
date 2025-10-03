@@ -1,0 +1,2 @@
+# No required dependencies
+# (Optional: pandas for working with CSV files)
