@@ -2,7 +2,6 @@ import csv
 import logging
 from pathlib import Path
 
-# Set up logging
 logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
 
 class Experiment:
@@ -47,7 +46,7 @@ class Experiment:
 			logging.error(f"save_results failed: {e}")
 
 def main():
-	exp = Experiment("Robotic Arm Control Study")
+	exp = Experiment("HRI study")
 
 	# Operators (participants)
 	exp.add_participant("Op01", 29)
@@ -59,10 +58,9 @@ def main():
 	exp.log_task("Op01", "Precision soldering", "timeout")
 	exp.log_task("Op02", "Assembly line tracking", "success")
 
-	# Invalid operator to show error handling
+	# Invalid operator for error handling
 	exp.log_task("Op99", "Welding test", "success")
 
-	# Save results
 	exp.save_results(Path("robot_arm_results.csv"))  
 
 if __name__ == "__main__":
